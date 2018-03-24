@@ -1,7 +1,7 @@
 /**
  * Created by Rohan on 3/22/2018.
  */
-var app = angular.module('locplus', ['ui.router'])
+var app = angular.module('locplus', ['ui.router','ngMaterial'])
 
 app.config(function ($stateProvider, $urlRouterProvider) {
 
@@ -23,21 +23,21 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         .state('dashboard.category', {
             url: '/category',
             templateUrl: 'category/category.html',
-            controller: 'categoryCtrl as $ctrl'
+            controller: 'categoryCtrl'
         })
         .state('dashboard.facility', {
             url: '/facility',
             templateUrl: 'facility/facility.html',
-            controller: 'facilityCtrl as $ctrl'
+            controller: 'facilityCtrl'
         })
         .state('dashboard.place', {
             url: '/place',
             templateUrl: 'place/place.html',
-            controller: 'placeCtrl as $ctrl'
+            controller: 'placeCtrl'
         })
         .state('dashboard.remove-place', {
             url: '/place',
             templateUrl: 'place/removePlace.html',
-            controller: 'removePlaceCtrl as $ctrl'
+            controller: 'removePlaceCtrl'
         })
 })

@@ -1,21 +1,29 @@
-<!-- HTML template for Alert Dialog -->
+<!-- HTML template for Login Dialog -->
 <md-dialog class="dialog-container w-50">
-    <div class="container-fluid">
-        <h4><b>Login</b></h4>
+    <div class="container-fluid sticky-top">
+        <h4><br><b>Login</b></h4>
+        <div class="d-flex justify-content-end flex-row">
+            <h6 class="m-1 d-inline-block">Not Registered?</h6>
+            <button type="submit" class="btn btn-primary m-1 d-inline-block" ng-click="register()">Register here</button>
+        </div>
         <hr>
     </div>
+    <div class="container-fluid">
+    <form>
+        <div class="">
+            <label>User Id</label>
+            <input type="text" class="form-control" placeholder="">
+            <label>Password</label>
+            <input type="password" class="form-control" placeholder="">
+        </div>
+        <br>
+        <center>
+            <div class="d-flex justify-content-around">
+                <button type="submit" class="btn btn-primary" ng-click="login()">Sign in</button>
+                <button type="submit" class="btn btn-primary" ng-click="cancel()">Cancel</button>
+            </div>
+        </center>
 
-    <form class="d-flex flex-column" ng-submit="login()">
-        <a href class="align-self-end" ng-click="register()">Register Now</a>
-        <a href class="align-self-end" ng-click="forgotPassword()">Forgot Password</a>
-        <input class="input-underlined" ng-model="email" type="text" placeholder="Enter your email...">
-        <input class="input-underlined" ng-model="password" type="password" placeholder="Enter password...">
-        <md-checkbox ng-value="" ng-model="bRemember">Remember Me</md-checkbox>
-        <input type="submit" class="hidden-element"/>
     </form>
-
-    <div class="container-fluid d-flex justify-content-end">
-        <button class="btn btn-primary" ng-click="login()">Login</button>
-        <button class="btn" ng-click="cancel()">Cancel</button>
     </div>
 </md-dialog>
