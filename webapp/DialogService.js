@@ -28,4 +28,18 @@ app.service('DialogService', function($mdDialog) {
             }
         })
     }
+
+    // Launch Remove Place Dialog
+    this.place = function (placeId, placeName, ic) {
+        // Show Dialog
+        $mdDialog.show({    templateUrl: 'place/removePlace.html',
+            controller: 'removePlaceCtrl',
+            clickOutsideToClose: true,
+            locals: {
+                placeId : placeId,
+                placeName : placeName,
+                ic : ic
+            }
+        })
+    }
 })
