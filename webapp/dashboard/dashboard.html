@@ -1,10 +1,11 @@
-<nav class="navbar navbar-light sticky-top bg-light">
-    <h3 class="navbar-brand">Locate Plus Admin Portal</h3>
+<nav class="navbar sticky-top navbar-light bg-dark">
+    <h3 class="navbar-brand text-light">Locate Plus Admin Portal</h3>
     <ul class="nav nav-pills">
-        <li class="nav-item"><a class="nav-link" ui-sref="dashboard.category">Category</a></li>
-        <li class="nav-item"><a class="nav-link" ui-sref="dashboard.facility">Facility</a></li>
-        <li class="nav-item"><a class="nav-link" ui-sref="dashboard.place">Place</a></li>
+        <li class="nav-item"><a class="nav-link" ui-sref="dashboard.category"><b>Category</b></a></li>
+        <li class="nav-item"><a class="nav-link" ui-sref="dashboard.facility"><b>Facility</b></a></li>
+        <li class="nav-item"><a class="nav-link" ui-sref="dashboard.place"><b>Place</b></a></li>
     </ul>
+    <button class="btn btn-danger" ng-click="logout()">Logout</button>
 </nav>
 
 <div class="h-100 w-100 container" ui-view></div>
