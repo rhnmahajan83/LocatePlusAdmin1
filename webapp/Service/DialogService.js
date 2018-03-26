@@ -30,7 +30,7 @@ app.service('DialogService', function($mdDialog) {
     }
 
     // Launch Remove Place Dialog
-    this.place = function (placeId, placeName, ic) {
+    this.place = function (placeId, placeName, rating, placeAddress) {
         // Show Dialog
         $mdDialog.show({    templateUrl: 'place/removePlace.html',
             controller: 'removePlaceCtrl',
@@ -38,7 +38,8 @@ app.service('DialogService', function($mdDialog) {
             locals: {
                 placeId : placeId,
                 placeName : placeName,
-                ic : ic
+                rating : rating,
+                placeAddress: placeAddress
             }
         })
     }

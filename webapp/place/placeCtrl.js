@@ -1,20 +1,26 @@
 /**
  * Created by Rohan on 3/22/2018.
  */
-app.controller('placeCtrl', function ($scope, $mdDialog, $state, DialogService) {
+app.controller('placeCtrl', function ($scope, $mdDialog, $state, DialogService, $http, $localStorage) {
 
-    $scope.places = [
-            {placeId: 1, placeName: "Apollo Hospital", ic: 65},
-            {placeId: 2, placeName: "Chinchwad Station", ic: 8},
-            {placeId: 3, placeName: "Sparsh Hospital", ic: 13},
-            {placeId: 4, placeName: "Morya Hospital", ic: 57}
-        ]
+    var placeData = []
 
+    $http({
+        method: 'GET',
+        url : 'http://172.16.39.50:8080/api/user/getPlaces'
+    }).then(
+        function (response) {
+            placeData = response.data.markers
+            $scope.places = placeData
+            console.error(placeData)
+        }
+    )
     $scope.remove = function (place) {
         var placeId = place.placeId
-        var placeName = place.placeName
-        var ic = place.ic
+        var placeName = place.name
+        var rating = place.star
+        var placeAddress = place.address
 
-        DialogService.place(placeId, placeName, ic)
+        DialogService.place(placeId, placeName, rating, placeAddress)
     }
 })
