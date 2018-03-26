@@ -1,7 +1,7 @@
 /**
  * Created by Rohan on 3/22/2018.
  */
-var app = angular.module('locplus', ['ui.router','ngMaterial'])
+var app = angular.module('locplus', ['ui.router','ngMaterial', 'ngStorage'])
 
 app.config(function ($stateProvider, $urlRouterProvider) {
 
