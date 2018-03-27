@@ -1,0 +1,6 @@
+md-toast.md-center {
+    left: 50%;
+    bottom: 50px;
+    text-align: center;
+    transform: translate3d(-50%, 0, 0);
+}

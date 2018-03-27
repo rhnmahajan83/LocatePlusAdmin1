@@ -16,7 +16,7 @@ app.controller('loginCtrl', function ($scope, $mdDialog, $state, DialogService, 
             }
         }).then(
             function (response) {
-                var password = response.data.password
+
             }
         )
     }
