@@ -43,4 +43,20 @@ app.service('DialogService', function($mdDialog) {
             }
         })
     }
+
+    this.category = function () {
+        $mdDialog.show({
+            templateUrl: 'category/addCategory.html',
+            controller: 'addCategoryCtrl',
+            clickOutsideToClose: true
+        })
+    }
+
+    this.facility = function () {
+        $mdDialog.show({
+            templateUrl: 'facility/addFacility.html',
+            controller: 'addFacilityCtrl',
+            clickOutsideToClose: true
+        })
+    }
 })
