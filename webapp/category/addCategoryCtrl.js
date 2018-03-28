@@ -1,7 +1,7 @@
 /**
  * Created by Rohan on 3/26/2018.
  */
-app.controller('addCategoryCtrl', function ($scope, $http, $mdDialog, ToastService) {
+app.controller('addCategoryCtrl', function ($scope, $http, $mdDialog, ToastService, $rootScope) {
 
     $scope.add = function () {
         $http({
@@ -13,6 +13,7 @@ app.controller('addCategoryCtrl', function ($scope, $http, $mdDialog, ToastServi
         }).then(function (response) {
                 if (response.data.success == true)
                     $mdDialog.hide()
+            $rootScope.$broadcast('sync')
             ToastService.toast("Category added successfully...")
             })
         }

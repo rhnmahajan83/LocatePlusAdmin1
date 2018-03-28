@@ -6,6 +6,18 @@ app.controller('categoryCtrl', function ($http, $scope, DialogService) {
 
     var categoryData = []
 
+    $scope.$on('sync', function () {
+        $http({
+            method: 'GET',
+            url : 'http://172.16.39.50:8080/api/user/getFC'
+        }).then(
+            function (response) {
+                categoryData = response.data.categories
+                $scope.categories = categoryData
+                console.error(categoryData)
+            }
+        )
+    })
     $http({
         method: 'GET',
         url : 'http://172.16.39.50:8080/api/user/getFC'
