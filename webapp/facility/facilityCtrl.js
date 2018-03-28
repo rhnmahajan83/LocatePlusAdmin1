@@ -8,15 +8,27 @@ app.controller('facilityCtrl', function ($http, $scope, DialogService) {
 
     $http({
         method: 'GET',
-        url : 'http://localhost:8080/api/admin/getFacilities'
+        url : 'http://172.16.39.50:8080/api/user/getFC'
     }).then(
         function (response) {
-            facilityData = response.data.markers
+            facilityData = response.data.facilities
             $scope.facilities = facilityData
             console.error(facilityData)
         }
     )
 
+    $scope.$on('sync', function () {
+        $http({
+        method: 'GET',
+        url : 'http://172.16.39.50:8080/api/user/getFC'
+    }).then(
+        function (response) {
+            facilityData = response.data.facilities
+            $scope.facilities = facilityData
+            console.error(facilityData)
+        }
+    )
+    })
     $scope.add = function () {
         DialogService.facility()
     }

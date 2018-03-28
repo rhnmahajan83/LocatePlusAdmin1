@@ -8,10 +8,10 @@ app.controller('categoryCtrl', function ($http, $scope, DialogService) {
 
     $http({
         method: 'GET',
-        url : 'http://localhost:8080/api/admin/getCategories'
+        url : 'http://172.16.39.50:8080/api/user/getFC'
     }).then(
         function (response) {
-            categoryData = response.data.markers
+            categoryData = response.data.categories
             $scope.categories = categoryData
             console.error(categoryData)
         }
