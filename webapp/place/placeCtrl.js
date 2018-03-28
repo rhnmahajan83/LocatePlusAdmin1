@@ -18,7 +18,7 @@ app.controller('placeCtrl', function ($scope, $mdDialog, $state, DialogService, 
     $scope.remove = function (place) {
         var placeId = place.placeId
         var placeName = place.name
-        var rating = place.star
+        var rating = place.rating
         var placeAddress = place.address
 
         DialogService.place(placeId, placeName, rating, placeAddress)
