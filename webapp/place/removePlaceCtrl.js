@@ -21,7 +21,7 @@ app.controller('removePlaceCtrl', function ($scope, $mdDialog, $http, placeId, p
         }
     }).then(function (response) {
         if(response)
-            $scope.images = response.data
+            $scope.photos = response.data.photos
     })
 
     $scope.remove = function () {
@@ -37,4 +37,25 @@ app.controller('removePlaceCtrl', function ($scope, $mdDialog, $http, placeId, p
                 ToastService.toast("Place removed successfully...")
             })
     }
+
+    $.fn.stars = function() {
+
+        return $(this).each(function() {
+            // Get the value
+            var val = parseFloat($(this).html());
+
+            // Make sure that the value is in 0 - 5 range, multiply to get width
+            var size = Math.max(0, (Math.min(5, val))) * 16;
+
+            // Create stars holder
+            var $span = $('<span />').width(size);
+            // Replace the numerical value with stars
+            $(this).html($span);
+        });
+    }
+
+    $(function() {
+        $('span.stars').stars();
+    });
+
 })
