@@ -16,10 +16,7 @@ app.controller('removePlaceCtrl', function ($scope, $mdDialog, $http, placeId, p
     $scope.remove = function () {
         $http({
             method: 'POST',
-            url : 'http://localhost:8080/api/admin/removePlace',
-            headers: {
-                'Access-Control-Allow-Origin': '*'
-            },
+            url : 'http://172.16.39.50:8080/api/admin/removePlace',
             data:{
                 placeId:placeId
             }
