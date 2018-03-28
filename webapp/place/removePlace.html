@@ -6,8 +6,24 @@
     </div>
     <div class="d-flex flex-column">
         <div class="container-fluid d-flex flex-row">
-           <img src="../images/hosp.jpg" height="300" width="300" class="m-2"/>
-           <div class="m-2">
+
+            <div id="demo" class="carousel slide" data-ride="carousel">
+
+                <div class="carousel-inner">
+                    <div class="carousel-item" ng-class="{active:!$index}" ng-repeat="image in images">
+            <img class="mh-100 mw-100"
+                 ng-src="data:image/JPEG;base64,{{image | bytetobase}}" height="300" width="300" class="m-2"/>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#demo" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+
+            <div class="m-2">
                <h4 class="">{{placeName}}</h4>
                <div>{{placeAddress}}</div>
                <div>Reviews</div>

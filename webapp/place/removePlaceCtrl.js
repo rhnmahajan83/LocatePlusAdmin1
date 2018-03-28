@@ -13,6 +13,17 @@ app.controller('removePlaceCtrl', function ($scope, $mdDialog, $http, placeId, p
         $mdDialog.hide()
     }
 
+    $http({
+        method: 'POST',
+        url : 'http://172.16.39.50:8080/api/user/getPhoto',
+        data:{
+            placeId:placeId
+        }
+    }).then(function (response) {
+        if(response)
+            $scope.images = response.data
+    })
+
     $scope.remove = function () {
         $http({
             method: 'POST',
@@ -20,12 +31,10 @@ app.controller('removePlaceCtrl', function ($scope, $mdDialog, $http, placeId, p
             data:{
                 placeId:placeId
             }
-        }).then(
-            function (response) {
+        }).then(function (response) {
                 if(response.data.success == true)
                 $mdDialog.hide()
                 ToastService.toast("Place removed successfully...")
-            }
-        )
+            })
     }
 })
