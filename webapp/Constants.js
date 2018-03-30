@@ -4,4 +4,4 @@
 
 var Constants = {}
 
-Constants.IP = '172.16.18.52'
+Constants.IP = '172.16.18.70'

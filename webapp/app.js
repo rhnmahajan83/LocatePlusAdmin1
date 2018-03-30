@@ -40,4 +40,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: 'place/removePlace.html',
             controller: 'removePlaceCtrl'
         })
+        .state('dashboard.udid', {
+            url: '/udid',
+            templateUrl: 'udid/udid.html',
+            controller: 'udidCtrl'
+        })
 })
