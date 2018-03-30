@@ -9,7 +9,7 @@ app.controller('removeFacilityCtrl', function ($scope, $http, $mdDialog, ToastSe
     $scope.remove = function () {
         $http({
             method: 'POST',
-            url : 'http://172.16.39.50:8080/api/admin/removeCategory',
+            url : 'http://' + Constants.IP + ':8080/api/admin/removeCategory',
             data: {
                 facility: facility
             }

@@ -7,7 +7,7 @@ app.controller('placeCtrl', function ($scope, $mdDialog, $state, DialogService, 
 
     $http({
         method: 'GET',
-        url : 'http://172.16.39.50:8080/api/user/getPlaces'
+        url : 'http://' + Constants.IP + ':8080/api/user/getPlaces'
     }).then(
         function (response) {
             placeData = response.data.markers

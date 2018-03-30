@@ -6,7 +6,7 @@ app.controller('addCategoryCtrl', function ($scope, $http, $mdDialog, ToastServi
     $scope.add = function () {
         $http({
             method: 'POST',
-            url : 'http://172.16.39.50:8080/api/admin/addCategory',
+            url : 'http://' + Constants.IP + ':8080/api/admin/addCategory',
             data: {
                 category: $scope.name
             }

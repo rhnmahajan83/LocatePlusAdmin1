@@ -15,7 +15,7 @@ app.controller('removePlaceCtrl', function ($scope, $mdDialog, $http, placeId, p
 
     $http({
         method: 'POST',
-        url : 'http://172.16.39.50:8080/api/user/getPhoto',
+        url : 'http://' + Constants.IP + ':8080/api/user/getPhoto',
         data:{
             placeId:placeId
         }
@@ -27,7 +27,7 @@ app.controller('removePlaceCtrl', function ($scope, $mdDialog, $http, placeId, p
     $scope.remove = function () {
         $http({
             method: 'POST',
-            url : 'http://172.16.39.50:8080/api/admin/removePlace',
+            url : 'http://' + Constants.IP + ':8080/api/admin/removePlace',
             data:{
                 placeId:placeId
             }
