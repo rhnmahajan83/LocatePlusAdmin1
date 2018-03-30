@@ -6,7 +6,7 @@ var app = angular.module('locplus', ['ui.router','ngMaterial', 'ngStorage'])
 app.config(function ($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.when('', '/')
-    $urlRouterProvider.when('/dashboard', '/dashboard/category')
+    $urlRouterProvider.when('/dashboard', '/dashboard')
 
     $stateProvider
 

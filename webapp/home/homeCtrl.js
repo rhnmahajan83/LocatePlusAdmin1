@@ -4,7 +4,7 @@
 app.controller('homeCtrl', function ($scope, $state, DialogService) {
 
     $scope.login = function () {
-        DialogService.login()
+        $state.go('dashboard')
     }
 
     $scope.register = function () {
