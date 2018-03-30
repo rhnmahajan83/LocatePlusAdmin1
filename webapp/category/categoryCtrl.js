@@ -9,7 +9,7 @@ app.controller('categoryCtrl', function ($http, $scope, DialogService) {
     $scope.$on('sync', function () {
         $http({
             method: 'GET',
-            url : 'http://172.16.39.50:8080/api/user/getFC'
+            url : 'http://' + Constants.IP + ':8080/api/user/getFC'
         }).then(
             function (response) {
                 categoryData = response.data.categories
@@ -20,7 +20,7 @@ app.controller('categoryCtrl', function ($http, $scope, DialogService) {
     })
     $http({
         method: 'GET',
-        url : 'http://172.16.39.50:8080/api/user/getFC'
+        url : 'http://' + Constants.IP + ':8080/api/user/getFC'
     }).then(
         function (response) {
             categoryData = response.data.categories

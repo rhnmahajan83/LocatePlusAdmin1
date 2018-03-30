@@ -7,7 +7,7 @@ app.controller('addFacilityCtrl', function ($scope, $http, $mdDialog, ToastServi
         console.error($scope.name)
         $http({
             method: 'POST',
-            url : 'http://172.16.39.50:8080/api/admin/addFacility',
+            url : 'http://' + Constants.IP + ':8080/api/admin/addFacility',
             data: {
                 facility : $scope.name
             }
