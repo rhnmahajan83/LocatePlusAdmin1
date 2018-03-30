@@ -30,7 +30,7 @@ app.service('DialogService', function($mdDialog) {
     }
 
     // Launch Remove Place Dialog
-    this.place = function (placeId, placeName, rating, placeAddress) {
+    this.place = function (placeId, placeName, rating, placeAddress, review) {
         // Show Dialog
         $mdDialog.show({    templateUrl: 'place/removePlace.html',
             controller: 'removePlaceCtrl',
@@ -39,11 +39,13 @@ app.service('DialogService', function($mdDialog) {
                 placeId : placeId,
                 placeName : placeName,
                 rating : rating,
-                placeAddress: placeAddress
+                placeAddress: placeAddress,
+                review : review
             }
         })
     }
 
+    // Launch Remove Place Dialog
     this.category = function () {
         $mdDialog.show({
             templateUrl: 'category/addCategory.html',
@@ -52,6 +54,7 @@ app.service('DialogService', function($mdDialog) {
         })
     }
 
+    // Launch Remove Place Dialog
     this.facility = function () {
         $mdDialog.show({
             templateUrl: 'facility/addFacility.html',

@@ -2,27 +2,31 @@
  * Created by Rohan on 3/22/2018.
  */
 
-app.controller('removePlaceCtrl', function ($scope, $mdDialog, $http, placeId, placeName, rating, placeAddress, ToastService) {
+app.controller('removePlaceCtrl', function ($scope, $mdDialog, $http, placeId, placeName, rating, review, placeAddress, ToastService, $rootScope) {
+
 
     $scope.placeId = placeId
     $scope.placeName = placeName
     $scope.placeAddress = placeAddress
     $scope.rating = rating
+    $scope.review = review
 
     $scope.cancel = function () {
         $mdDialog.hide()
     }
 
-    $http({
-        method: 'POST',
-        url : 'http://' + Constants.IP + ':8080/api/user/getPhoto',
-        data:{
-            placeId:placeId
-        }
-    }).then(function (response) {
-        if(response)
-            $scope.photos = response.data.photos
-    })
+    var sync = function() {
+        $http({
+            method: 'POST',
+            url: 'http://' + Constants.IP + ':8080/api/user/getPhoto',
+            data: {
+                placeId: placeId
+            }
+        }).then(function (response) {
+            if (response)
+                $scope.photos = response.data.photos
+        })
+    }
 
     $scope.remove = function () {
         $http({
@@ -37,6 +41,26 @@ app.controller('removePlaceCtrl', function ($scope, $mdDialog, $http, placeId, p
                 ToastService.toast("Place removed successfully...")
             })
     }
+
+        $scope.removePhoto = function (photo) {
+            var photoUuid = photo.uuid
+
+            console.error('uuid: ' + photoUuid)
+            $http({
+                method: 'POST',
+                url: 'http://' + Constants.IP + ':8080/api/admin/removePhotos',
+                data: {
+                    photoUuid: photoUuid,
+                    placeId: placeId
+                }
+            }).then(function (response) {
+                if (response.data.success == true)
+                ToastService.toast("Photo removed successfully...")
+                    $rootScope.broadcast('sync')
+            })
+        }
+
+    $scope.$on('sync', sync())
 
     $.fn.stars = function() {
 

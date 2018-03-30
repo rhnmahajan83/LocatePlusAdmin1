@@ -20,7 +20,8 @@ app.controller('placeCtrl', function ($scope, $mdDialog, $state, DialogService, 
         var placeName = place.name
         var rating = place.rating
         var placeAddress = place.address
+        var review = place.review
 
-        DialogService.place(placeId, placeName, rating, placeAddress)
+        DialogService.place(placeId, placeName, rating, placeAddress, review)
     }
 })
