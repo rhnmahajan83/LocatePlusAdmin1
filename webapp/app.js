@@ -45,4 +45,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: 'udid/udid.html',
             controller: 'udidCtrl'
         })
+        .state('dashboard.photo', {
+            url: '/photo',
+            templateUrl: 'photo/photo.html',
+            controller: 'photoCtrl'
+        })
 })

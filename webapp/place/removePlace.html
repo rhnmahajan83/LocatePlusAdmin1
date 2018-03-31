@@ -14,7 +14,7 @@
                         <div class="cont">
                         <img class="mh-100 mw-100 photo"
                             ng-src="data:image/JPEG;base64,{{photo.photo | bytetobase}}" />
-
+                            <div class="top">IC: {{ic}}</div>
                         <div class="middle txt btn" ng-click="removePhoto(photo)">Remove Photo</div>
                         </div>
                     </div>
@@ -30,9 +30,9 @@
             <div class="m-2">
                <h4 class="">{{placeName}}</h4>
                <div>{{placeAddress}}</div>
-               <div style="width:300px; height:120px; overflow-y : scroll;" >{{review}}</div>
-               <div class="absoluteIc">Inappropriate count: {{rating}}</div>
-               <div class="absoluteRating"><span class="stars">{{rating}}</span></div>
+                <div>{{description}}</div>
+               <div style="width:300px; height:120px; overflow-y : scroll;" ng-repeat="rev in review | split">Review:{{rev}}</div>
+               <div class="absoluteRating d-flex "><span class="stars">{{rating}}</span>({{noOfUsers}})</div>
            </div>
         </div>
         <br>
