@@ -2,7 +2,8 @@
  * Created by Rohan on 3/22/2018.
  */
 
-app.controller('removePlaceCtrl', function ($scope, $mdDialog, $http, placeId, placeName, rating, review, placeAddress, ToastService, $rootScope) {
+app.controller('removePlaceCtrl', function ($scope, $mdDialog, $http, placeId, placeName, rating, review, description,
+                                                placeAddress, noOfUsers, ToastService, $rootScope) {
 
 
     $scope.placeId = placeId
@@ -10,6 +11,13 @@ app.controller('removePlaceCtrl', function ($scope, $mdDialog, $http, placeId, p
     $scope.placeAddress = placeAddress
     $scope.rating = rating
     $scope.review = review
+    $scope.noOfUsers = noOfUsers
+    $scope.description = description
+
+    console.error(rating)
+
+    console.error()
+
 
     $scope.cancel = function () {
         $mdDialog.hide()
@@ -25,6 +33,7 @@ app.controller('removePlaceCtrl', function ($scope, $mdDialog, $http, placeId, p
         }).then(function (response) {
             if (response)
                 $scope.photos = response.data.photos
+                $scope.ic = response.data.photos.inAppropriateCount
         })
     }
 

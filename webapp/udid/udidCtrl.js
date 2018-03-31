@@ -8,7 +8,12 @@ app.controller('udidCtrl', function ($scope, $http, ImportService, ToastService)
         console.error("calling")
         ImportService.import('http://' + Constants.IP + ':8080/api/admin/importUdid', file)
             .then(function () {
+
                 ToastService.toast('Excel file uploaded')
-            })
+            },
+            function (message) {
+
+                ToastService.toast("Upload Error : " + message)
+        })
     }
 })
