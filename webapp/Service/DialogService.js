@@ -64,4 +64,22 @@ app.service('DialogService', function($mdDialog) {
             clickOutsideToClose: true
         })
     }
+
+    // Launch Remove Complaint Dialog
+    /*this.complaint = function (placeId, placeName, rating, placeAddress, description, noOfUsers, review) {
+        // Show Dialog
+        $mdDialog.show({    templateUrl: 'place/removePlace.html',
+            controller: 'removePlaceCtrl',
+            clickOutsideToClose: true,
+            locals: {
+                complaint : placeId,
+                placeName : placeName,
+                resolutionCount : rating,
+                placeAddress: placeAddress,
+                description : description,
+                noOfUsers: noOfUsers,
+                review : review,
+            }
+        })
+    }*/
 })

@@ -34,7 +34,7 @@ app.controller('placeCtrl', function ($scope, $mdDialog, $state, DialogService, 
         var description = place.description
         var noOfUsers = place.noOfUsers
 
-        $http({
+       /* $http({
             method: 'POST',
             url : 'http://' + Constants.IP + ':8080/api/user/getReviews',
             data: {
@@ -44,7 +44,7 @@ app.controller('placeCtrl', function ($scope, $mdDialog, $state, DialogService, 
             function (response) {
                 $scope.review = response.data.reviews
             }
-        )
+        )*/
               var review = $scope.review
 
         DialogService.place(placeId, placeName, rating, placeAddress, description, noOfUsers, review)

@@ -34,6 +34,7 @@ app.controller('removePlaceCtrl', function ($scope, $mdDialog, $http, placeId, p
             if (response)
                 $scope.photos = response.data.photos
                 $scope.ic = response.data.photos.inAppropriateCount
+            console.error("ic" +ic)
         })
     }
 
